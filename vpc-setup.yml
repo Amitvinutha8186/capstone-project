@@ -155,7 +155,7 @@
         - Natgw_out.nat_gatway_id
         - privRT_out.route_table.id
 
-    - set_facts:
+    - set_fact:
         vpcid: "{{vpcout.vpc.id}}"
         pubsub1id: "{{pubsub1_out.subnet.id}}"
         pubsub2id: "{{pubsub2_out.subnet.id}}"
@@ -171,7 +171,7 @@
 
     - name: create variables file for VPC output.
       copy:
-        content: "vpcid: {{vpcout.vpc.id}}n\pubsub1id: {{pubsub1_out.subnet.id}}n\pubsub2id: {{pubsub2_out.subnet.id}}n\pubsub3id: {{pubsub3_out.subnet.id}}n\privsub1id: {{privsub1_out.subnet.id}}n\privsub2id: {{privsub2_out.subnet.id}}n\privsub3id: {{privsub3_out.subnet.id}}n\igwid: {{igw_out.gateway_id}}n\pubRTid: {{pubRT_out.route_table.id}}n\Natgwid: {{Natgw_out.nat_gatway_id}}n\privRTid: {{privRT_out.route_table.id}}"
-        dest: vars/output_vars
+         content: "vpcid: {{vpcout.vpc.id}}n\pubsub1id: {{pubsub1_out.subnet.id}}n\pubsub2id: {{pubsub2_out.subnet.id}}n\pubsub3id: {{pubsub3_out.subnet.id}}n\privsub1id: {{privsub1_out.subnet.id}}n\privsub2id: {{privsub2_out.subnet.id}}n\privsub3id: {{privsub3_out.subnet.id}}n\igwid: {{igw_out.gateway_id}}n\pubRTid: {{pubRT_out.route_table.id}}n\Natgwid: {{Natgw_out.nat_gatway_id}}n\privRTid: {{privRT_out.route_table.id}}"
+         dest: vars/output_vars
 
 
