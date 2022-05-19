@@ -5,7 +5,7 @@
   gather_facts: false
   tasks:
     - name: Import VPC setup variable.
-      incldue_vars: vars/nodes_setup
+      include_vars: vars/nodes_setup
     - name: Import VPC setup variable.
       include_vars: vars/output_vars
     - name: Create capstone ec2 key.
