@@ -152,7 +152,7 @@
         - privsub3_out.subnet.id
         - igw_out.gateway_id
         - pubRT_out.route_table.id
-        - Natgw_out.nat_gatway_id
+        - Natgw_out.nat_gateway_id
         - privRT_out.route_table.id
 
     - set_fact:
@@ -165,7 +165,7 @@
         privsub3id: "{{privsub3_out.subnet.id}}"
         igwid: "{{igw_out.gateway_id}}"
         pubRTid: "{{pubRT_out.route_table.id}}"
-        Natgwid: "{{Natgw_out.nat_gatway_id}}"
+        Natgwid: "{{Natgw_out.nat_gateway_id}}"
         privRTid: "{{privRT_out.route_table.id}}"
         cacheable: yes
 
