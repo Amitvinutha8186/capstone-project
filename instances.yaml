@@ -51,7 +51,7 @@
           Name: "node2"
           Project: Capstone
           Owner: Amit
-        group_id: "{{capstone-SG-out.group_id}}"
+        group_id: "{{capstoneSG_out.group_id}}"
         vpc_subnet_id: "{{pubsub1id}}"
       register: Capstonenodes_out
 
