@@ -16,8 +16,8 @@
    - name: Save private key into file capstone-key.pem
      copy:
        content: "{{key_out.key.private_key}}"
-       dest: "./capstone-key.pem
-       mode: o6oo
+       dest: "./capstone-key.pem"
+       mode: 0600
      when: key_out.changed
 
    - name: create security group for capstone nodes.
@@ -32,6 +32,7 @@
            to_port: 22
            cidr_ip: 0.0.0.0/0
      register: capstone-SG-out
+
    - name: Creating capstone node.
      ec2:
        key_name: capstone-key
@@ -52,3 +53,9 @@
        group_id: "{{capstone-SG-out.group_id}}"
        vpc_subnet_id: "{{pubsub1id}}"
      register: Capstonenodes_out
+
+
+
+
+
+
