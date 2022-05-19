@@ -39,7 +39,7 @@
         key_name: capstone-key
         region: "{{region}}"
         instance_type: t2.micro
-        image: ami-0fa49cc9dc8d62c84
+        image: "{{bastion_ami}}"
         wait: yes
         wait_timeout: 300
         instance_tags:
