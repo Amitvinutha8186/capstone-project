@@ -1,0 +1,54 @@
+---
+ hosts: localhost
+ connection: local
+ gather_facts: false
+ tasks:
+   - name: Import VPC setup variable.
+     incldue_vars: vars/nodes_setup
+   - name: Import VPC setup variable.
+     include_vars: vars/output_vars
+   - name: Create capstone ec2 key.
+     ec2_key:
+       name: capstone-key
+       region: "{{region}}"
+     register: key_out
+
+   - name: Save private key into file capstone-key.pem
+     copy:
+       content: "{{key_out.key.private_key}}"
+       dest: "./capstone-key.pem
+       mode: o6oo
+     when: key_out.changed
+
+   - name: create security group for capstone nodes.
+     ec2_group:
+       name: capstone-node-sg
+       description: allow 22 port from anywhere and all ports from SG.
+       region: "{{region}}"
+       vpc_id: "{{vpcid}}"
+       rules:
+         - proto: tcp
+           from_port: 22
+           to_port: 22
+           cidr_ip: 0.0.0.0/0
+     register: capstone-SG-out
+   - name: Creating capstone node.
+     ec2:
+       key_name: capstone-key
+       region: "{{region}}"
+       instance_type: t2.micro
+       image: ami-0fa49cc9dc8d62c84
+       wait: yes
+       wait_timeout: 300
+       instance_tags:
+         Name: "node1"
+         project: Capstone
+         Owner: Amit
+       exact_count: 2
+       count_tag:
+         Name: "node2"
+         Project: Capstone
+         Owner: Amit
+       group_id: "{{capstone-SG-out.group_id}}"
+       vpc_subnet_id: "{{pubsub1id}}"
+     register: Capstonenodes_out
