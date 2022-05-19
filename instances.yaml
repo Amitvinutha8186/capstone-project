@@ -32,7 +32,7 @@
             from_port: 22
             to_port: 22
             cidr_ip: 0.0.0.0/0
-      register: capstone-SG_out
+      register: capstoneSG_out
 
     - name: Creating capstone node.
       ec2:
