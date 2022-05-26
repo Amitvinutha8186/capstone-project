@@ -48,7 +48,7 @@
           Owner: Amit
         exact_count: 2
         count_tag:
-          Name: "node2"
+          Name: "node1"
           Project: Capstone
           Owner: Amit
         group_id: "{{capstoneSG_out.group_id}}"
